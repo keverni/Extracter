@@ -28,3 +28,8 @@ int main() noexcept
 	manager.ExtractEntries("test_archive.zip");
 }
 ```
+
+## Testing
+```shell
+ctest
+```
