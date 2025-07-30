@@ -2,6 +2,7 @@
 
 #include "Archive.h"
 #include <memory>
+#include <optional>
 
 enum class ArchiveType
 {
@@ -11,7 +12,7 @@ enum class ArchiveType
 class ArchiveManager final
 {
 public:
-	void SetArhiveType(ArchiveType type) noexcept;
+	std::optional<int> SetArhiveType(ArchiveType type) noexcept;
 
 	void ExtractEntries(const std::string& archive_name, const std::string& password = "") const noexcept;
 
