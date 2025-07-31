@@ -15,7 +15,7 @@ std::optional<int> ArchiveManager::SetArhiveType(ArchiveType type) noexcept
 	return 1;
 }
 
-void ArchiveManager::ExtractEntries(const std::string& archive_name, const std::string& password) const noexcept
+void ArchiveManager::ExtractEntries(const std::string& archive_name, const std::string& password) const
 {
 	m_Archive->Extract(archive_name, password);
 }

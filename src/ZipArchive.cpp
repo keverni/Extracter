@@ -8,13 +8,20 @@
 namespace lz = libzippp;
 namespace fs = std::filesystem;
 
-void ZipArchive::Extract(const std::string& archive_name, const std::string& password) const noexcept
+void ZipArchive::Extract(const std::string& archive_name, const std::string& password) const
 {
 	lz::ZipArchive zip_archive{ archive_name, password};
-	zip_archive.open(lz::ZipArchive::ReadOnly);
+	if (!zip_archive.open(lz::ZipArchive::ReadOnly))
+	{
+		throw std::runtime_error("Zip Archive not exists!");
+	}
 
 	auto entries{ zip_archive.getEntries() };
 
+	if (entries.size() == 0)
+	{
+		throw std::runtime_error("Zip Archive is empty!");
+	}
 	fs::path path_to_file{ archive_name };
 	auto path_to_extract_dir{ path_to_file.stem().string() };
 	fs::path extract_dir = path_to_file.parent_path() / path_to_extract_dir;

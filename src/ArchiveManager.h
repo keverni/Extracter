@@ -14,7 +14,7 @@ class ArchiveManager final
 public:
 	std::optional<int> SetArhiveType(ArchiveType type) noexcept;
 
-	void ExtractEntries(const std::string& archive_name, const std::string& password = "") const noexcept;
+	void ExtractEntries(const std::string& archive_name, const std::string& password = "") const;
 
 private:
 	std::unique_ptr<Archive> m_Archive;

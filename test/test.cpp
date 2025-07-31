@@ -1,4 +1,5 @@
 #include "TestArchiveManager.h"
+#include "TestZipArchive.h"
 
 int main(int argc, char** argv)
 {
