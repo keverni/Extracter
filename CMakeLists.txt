@@ -26,15 +26,15 @@ set_target_properties(${PROJECT_NAME}
 
 find_package(libzippp CONFIG REQUIRED)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC libzippp::libzippp)
+target_link_libraries(${PROJECT_NAME} PRIVATE libzippp::libzippp)
 
 # gtest
 
-find_package(GTest)
+find_package(GTest CONFIG REQUIRED)
 
-target_include_directories(${TEST_NAME} PUBLIC ${GTEST_INCLUDE_DIRS} ${SRC_PATH})
+target_include_directories(${TEST_NAME} PRIVATE ${GTEST_INCLUDE_DIRS} ${SRC_PATH})
 
-target_link_libraries(${TEST_NAME} PUBLIC ${GTEST_BOOTH_LIBRARIES} 	
+target_link_libraries(${TEST_NAME} PRIVATE ${GTEST_BOOTH_LIBRARIES} 	
 	GTest::gtest 
 	GTest::gtest_main
 	libzippp::libzippp
