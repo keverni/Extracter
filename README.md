@@ -3,10 +3,11 @@ Extracter - Educational and just-for-fun project on С++
 
 ## Dependencies
 * [libzipp](https://github.com/ctabin/libzippp)
+* [GTest](https://github.com/google/googletest)
 
 ## Build
 ```shell
-vcpkg install libzipp
+vcpkg install libzipp gtest
 vcpkg integrate install
 
 cd Extracter
