@@ -11,7 +11,7 @@ project(${PROJECT_NAME} VERSION 1.0)
 
 # builds
 
-file(GLOB SRC_SOURCES "${SRC_PATH}/*.cpp")
+file(GLOB_RECURSE SRC_SOURCES "${SRC_PATH}/*.cpp")
 add_executable(${PROJECT_NAME} ${SRC_SOURCES})
 
 add_executable(${TEST_NAME} "${TEST_PATH}/test.cpp" "${SRC_PATH}/ArchiveManager.cpp" "${SRC_PATH}/ZipArchive.cpp")
