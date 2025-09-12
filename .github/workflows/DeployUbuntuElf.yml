@@ -46,6 +46,6 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         with:
           upload_url: '${{ steps.create_release.outputs.upload_url }}'
-          asset_path: './build/sample_calc'
-          asset_name: 'sample_calc-${{ github.run_number }}.elf'
+          asset_path: './build/extracter'
+          asset_name: 'extracter-${{ github.run_number }}.elf'
           asset_content_type: application/octet-stream
