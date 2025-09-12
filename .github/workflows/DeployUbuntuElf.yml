@@ -24,7 +24,6 @@ jobs:
       
       - name: Test project
         run: |
-          cd build
           ctest
         
       - name: Create Release
