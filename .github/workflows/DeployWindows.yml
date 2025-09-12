@@ -15,10 +15,10 @@ jobs:
           
       - name: Install Dependencies
        run: |
-          git clone https://github.com/Microsoft/vcpkg.git
-          .\vcpkg\bootstrap-vcpkg.bat -disableMetrics
-          .\vcpkg\vcpkg install gtest libzippp
-          .\vcpkg\vcpkg integrate install
+          "git clone https://github.com/Microsoft/vcpkg.git"
+          ".\vcpkg\bootstrap-vcpkg.bat -disableMetrics"
+          ".\vcpkg\vcpkg install gtest libzippp"
+          ".\vcpkg\vcpkg integrate install"
         
       - name: Build project
         run: |
