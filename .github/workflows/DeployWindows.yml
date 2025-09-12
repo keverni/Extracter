@@ -18,7 +18,7 @@ jobs:
       - name: Install vcpkg
         run: '.\vcpkg\bootstrap-vcpkg.bat -disableMetrics'
       - name: Install gtest
-        run: '.\vcpkg\vcpkg install gtest'
+        run: '.\vcpkg\vcpkg install gtest libzippp'
       - name: Integrate vcpkg
         run: '.\vcpkg\vcpkg integrate install'
         
