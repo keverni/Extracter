@@ -13,12 +13,14 @@ jobs:
         with:
           submodules: true
           
-      - name: Install Dependencies
-        run: |
-          "git clone https://github.com/Microsoft/vcpkg.git"
-          ".\vcpkg\bootstrap-vcpkg.bat -disableMetrics"
-          ".\vcpkg\vcpkg install gtest libzippp"
-          ".\vcpkg\vcpkg integrate install"
+      - name: Download vcpkg
+        run: 'git clone https://github.com/Microsoft/vcpkg.git'
+      - name: Install vcpkg
+        run: '.\vcpkg\bootstrap-vcpkg.bat -disableMetrics'
+      - name: Install gtest
+        run: '.\vcpkg\vcpkg install gtest'
+      - name: Integrate vcpkg
+        run: '.\vcpkg\vcpkg integrate install'
         
       - name: Build project
         run: |
