@@ -27,7 +27,7 @@ jobs:
           
       - name: Build project
         run: |
-          cmake .
+          cmake . -DCMAKE_TOOLCHAIN_FILE=D:/a/Extracter/Extracter/vcpkg/scripts/buildsystems/vcpkg.cmake
           cmake --build . --config Release
       
       - name: Test project
