@@ -19,8 +19,7 @@ jobs:
           
       - name: Build project
         run: |
-          mkdir build && cd build
-          cmake .. 
+          cmake .
           cmake --build . --config Release
       
       - name: Test project
