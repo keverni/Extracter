@@ -3,8 +3,14 @@
 
 int main() noexcept
 {
-	ArchiveManager manager;
-	
-	manager.SetArhiveType(ArchiveType::Zip);
-	manager.ExtractEntries("test_archive.zip");
+	try
+	{
+		ArchiveManager manager;
+		manager.SetArchiveType(ArchiveType::Zip);
+		manager.ExtractEntries("test_archive.zip");
+	}
+	catch (const std::exception& ex)
+	{
+		std::cerr << "Error: " << ex.what() << std::endl;
+	}
 }

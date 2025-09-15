@@ -1,18 +1,17 @@
 #include "ArchiveManager.h"
 #include "ZipArchive.h"
+#include <stdexcept>
 
-std::optional<int> ArchiveManager::SetArhiveType(ArchiveType type) noexcept
+void ArchiveManager::SetArchiveType(ArchiveType type)
 {
 	if (type == ArchiveType::Zip)
 	{
 		m_Archive = std::make_unique<ZipArchive>();
 	}
-	//
 	else
 	{
-		return std::nullopt;
+		throw std::invalid_argument("Invalid archive type");
 	}
-	return 1;
 }
 
 void ArchiveManager::ExtractEntries(const std::string& archive_name, const std::string& password) const

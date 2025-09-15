@@ -18,7 +18,7 @@ void ZipArchive::Extract(const std::string& archive_name, const std::string& pas
 
 	auto entries{ zip_archive.getEntries() };
 
-	if (entries.size() == 0)
+	if (entries.empty())
 	{
 		throw std::runtime_error("Zip Archive is empty!");
 	}
@@ -30,11 +30,17 @@ void ZipArchive::Extract(const std::string& archive_name, const std::string& pas
 
 	for (const auto& entry : entries)
 	{
-		if (entry.isNull()) continue;
+		if (entry.isNull())
+		{
+			continue;
+		}
 
 		auto name{ entry.getName() };
 
-		if (name.empty()) continue;
+		if (name.empty())
+		{
+			continue;
+		}
 
 		if (name.back() == '/')
 		{

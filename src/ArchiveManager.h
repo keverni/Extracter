@@ -12,7 +12,7 @@ enum class ArchiveType
 class ArchiveManager final
 {
 public:
-	std::optional<int> SetArhiveType(ArchiveType type) noexcept;
+	void SetArchiveType(ArchiveType type);
 
 	void ExtractEntries(const std::string& archive_name, const std::string& password = "") const;
 

@@ -16,7 +16,7 @@ add_executable(${PROJECT_NAME} ${SRC_SOURCES})
 
 add_executable(${TEST_NAME} "${TEST_PATH}/test.cpp" "${SRC_PATH}/ArchiveManager.cpp" "${SRC_PATH}/ZipArchive.cpp")
 
-set_target_properties(${PROJECT_NAME} 
+set_target_properties(${PROJECT_NAME} ${TEST_NAME} 
 	PROPERTIES
 	CXX_STANDARD 23
 	CXX_STANDARD_REQUIRED ON
