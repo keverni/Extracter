@@ -7,12 +7,16 @@ TEST(TestArchiveManager, SetValidType)
 {
 	ArchiveManager manager;
 
-	ASSERT_NO_THROW(manager.SetArchiveType(ArchiveType::Zip));
+	auto set_result{ manager.SetArchiveType(ArchiveType::Zip) };
+
+	ASSERT_TRUE(set_result.has_value());
 }
 
 TEST(TestArchiveManager, SetInvalidType)
 {
 	ArchiveManager manager;
 
-	ASSERT_THROW(manager.SetArchiveType(static_cast<ArchiveType>(10)), std::invalid_argument);
+	auto set_result{ manager.SetArchiveType(static_cast<ArchiveType>(10)) };
+
+	ASSERT_FALSE(set_result.has_value());
 }

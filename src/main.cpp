@@ -1,4 +1,6 @@
 
+#include <iostream>
+
 #include "ArchiveManager.h"
 #include <print>
 
@@ -6,16 +8,14 @@ int main() noexcept
 {
 	ArchiveManager manager;
 
-	auto set_result{ manager.SetArchiveType(ArchiveType::Zip) };
-	if (!set_result.has_value())
+	if (auto set_result{ manager.SetArchiveType(ArchiveType::Zip) }; !set_result.has_value())
 	{
-		std::println(set_result.error());
+		std::cout << set_result.error() << std::endl;
 	}
 
-	auto result{ manager.ExtractEntries("test_archive.zip") };
-	if (!result.has_value())
+	if (auto result{ manager.ExtractEntries("test_archive.zip") }; !result.has_value())
 	{
-		std::println(result.error());
+		std::cout << result.error() << std::endl;
 	}
 
 	return 0;
