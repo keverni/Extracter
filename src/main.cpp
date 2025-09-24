@@ -1,16 +1,22 @@
-#include <iostream>
+
 #include "ArchiveManager.h"
+#include <print>
 
 int main() noexcept
 {
-	try
+	ArchiveManager manager;
+
+	auto set_result{ manager.SetArchiveType(ArchiveType::Zip) };
+	if (!set_result.has_value())
 	{
-		ArchiveManager manager;
-		manager.SetArchiveType(ArchiveType::Zip);
-		manager.ExtractEntries("test_archive.zip");
+		std::println(set_result.error());
 	}
-	catch (const std::exception& ex)
+
+	auto result{ manager.ExtractEntries("test_archive.zip") };
+	if (!result.has_value())
 	{
-		std::cerr << "Error: " << ex.what() << std::endl;
+		std::println(result.error());
 	}
+
+	return 0;
 }

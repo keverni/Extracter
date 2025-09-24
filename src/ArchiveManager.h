@@ -2,7 +2,6 @@
 
 #include "Archive.h"
 #include <memory>
-#include <optional>
 
 enum class ArchiveType
 {
@@ -12,9 +11,9 @@ enum class ArchiveType
 class ArchiveManager final
 {
 public:
-	void SetArchiveType(ArchiveType type);
+	std::expected<int, std::string> SetArchiveType(ArchiveType type);
 
-	void ExtractEntries(const std::string& archive_name, const std::string& password = "") const;
+	std::expected<int, std::string> ExtractEntries(const std::string& archive_name, const std::string& password = "") const;
 
 private:
 	std::unique_ptr<Archive> m_Archive;
