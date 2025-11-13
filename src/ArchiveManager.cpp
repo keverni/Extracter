@@ -1,7 +1,10 @@
 #include "ArchiveManager.h"
+
+#include <stdexcept>
+
 #include "ZipArchive.h"
 
-std::expected<int, std::string> ArchiveManager::SetArchiveType(ArchiveType type)
+void ArchiveManager::SetArchiveType(ArchiveType type)
 {
 	if (type == ArchiveType::Zip)
 	{
@@ -9,12 +12,11 @@ std::expected<int, std::string> ArchiveManager::SetArchiveType(ArchiveType type)
 	}
 	else
 	{
-		return std::unexpected("Invalid archive type");
+		throw std::invalid_argument("Invalid archive type");
 	}
-	return 0;
 }
 
-std::expected<int, std::string> ArchiveManager::ExtractEntries(const std::string& archive_name, const std::string& password) const
+void ArchiveManager::ExtractEntries(const std::string& archive_name, const std::string& password) const
 {
-	return m_Archive->Extract(archive_name, password);
+	m_Archive->Extract(archive_name, password);
 }

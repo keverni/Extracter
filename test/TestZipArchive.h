@@ -5,11 +5,7 @@
 
 TEST(TestZipArchive, Extract)
 {
-	// Arrange
 	const ZipArchive archive;
 
-	auto result{ archive.Extract("test_archive.zip") };
-
-	// Assert
-	ASSERT_FALSE(result.has_value());
+	ASSERT_THROW(archive.Extract("test_archive.zip"), std::runtime_error);
 }
